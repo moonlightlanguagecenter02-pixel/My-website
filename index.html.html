@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-15">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moonlight Language Center | Japanese Language Consultancy</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/11.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for a clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8faff;
+            color: #1a1e2b;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* HEADER / NAV */
+        header {
+            background: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 20, 40, 0.04);
+            padding: 18px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(6px);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2.2rem;
+            color: #2b3a8f;
+            background: #eef2ff;
+            padding: 10px;
+            border-radius: 18px;
+            box-shadow: 0 6px 14px rgba(43, 58, 143, 0.12);
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0b1a4b;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #5b6b9c;
+            display: block;
+            letter-spacing: 0.3px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3756;
+            font-weight: 500;
+            margin-left: 28px;
+            font-size: 0.98rem;
+            transition: 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        nav a:hover {
+            color: #1e3ac9;
+            border-bottom-color: #1e3ac9;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background: #1e3ac9;
+            color: #fff;
+            font-weight: 600;
+            padding: 12px 28px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(30, 58, 201, 0.25);
+            letter-spacing: 0.3px;
+        }
+
+        .btn:hover {
+            background: #142a9e;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px rgba(30, 58, 201, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #1e3ac9;
+            border: 2px solid #1e3ac9;
+            box-shadow: none;
+            padding: 10px 26px;
+        }
+
+        .btn-outline:hover {
+            background: #1e3ac9;
+            color: #fff;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 70px 0 60px;
+            background: linear-gradient(145deg, #ffffff 0%, #f3f7ff 100%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-content h2 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: #0b1442;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h2 i {
+            color: #2b3a8f;
+            font-size: 2.8rem;
+            margin-right: 8px;
+        }
+
+        .hero-content .highlight {
+            background: linear-gradient(120deg, #d9e2ff 0%, #d9e2ff 40%, transparent 80%);
+            padding: 0 8px;
+            border-radius: 12px;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #2f3c62;
+            margin-bottom: 28px;
+            max-width: 550px;
+        }
+
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #eef2ff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #0b1a4b;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+            border: 1px solid #cfdaff;
+        }
+
+        .location-badge i {
+            color: #1e3ac9;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .hero-image {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="200" cy="180" r="130" fill="%23e6ecfe"/><circle cx="280" cy="120" r="60" fill="%23d0dcff"/><circle cx="120" cy="260" r="40" fill="%23becdfa"/><path d="M60 340 Q200 300 340 340" stroke="%232b3a8f" stroke-width="5" fill="none" opacity="0.3"/><text x="200" y="200" font-family="Inter, sans-serif" font-size="48" font-weight="700" fill="%231e3ac9" text-anchor="middle" opacity="0.8">月</text><text x="200" y="280" font-family="Inter, sans-serif" font-size="32" font-weight="600" fill="%232b3a8f" text-anchor="middle">日本語</text></svg>') no-repeat center;
+            background-size: contain;
+            min-height: 300px;
+            border-radius: 40px;
+            opacity: 0.95;
+            transition: 0.3s;
+        }
+
+        /* FEATURES / CARDS */
+        .section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0b1442;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-sub {
+            color: #4e5b82;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 48px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 30px;
+            padding: 36px 28px;
+            box-shadow: 0 20px 40px -12px rgba(0, 20, 60, 0.08);
+            border: 1px solid #eef2fc;
+            transition: 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 48px -12px rgba(30, 58, 201, 0.18);
+            border-color: #cdd9ff;
+        }
+
+        .card i {
+            font-size: 2.4rem;
+            color: #1e3ac9;
+            background: #eef3ff;
+            padding: 14px;
+            border-radius: 22px;
+            margin-bottom: 26px;
+        }
+
+        .card h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0a1440;
+        }
+
+        .card p {
+            color: #3d4a70;
+            font-size: 0.98rem;
+        }
+
+        /* LOCATION SECTION */
+        .location-section {
+            background: #ffffff;
+            border-radius: 60px;
+            margin: 40px 0 60px;
+            padding: 60px 40px;
+            box-shadow: 0 30px 50px -20px rgba(0, 20, 50, 0.08);
+            border: 1px solid #e4ebff;
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0b1442;
+            margin-bottom: 16px;
+        }
+
+        .location-info .address {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: #f5f8ff;
+            padding: 22px 26px;
+            border-radius: 32px;
+            margin: 28px 0;
+            border-left: 8px solid #1e3ac9;
+        }
+
+        .address i {
+            font-size: 1.8rem;
+            color: #1e3ac9;
+            margin-top: 4px;
+        }
+
+        .address p {
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #0a1440;
+            line-height: 1.4;
+        }
+
+        .address span {
+            font-weight: 400;
+            color: #4d5a80;
+            font-size: 0.98rem;
+            display: block;
+            margin-top: 6px;
+        }
+
+        .map-placeholder {
+            background: #eef3fd;
+            border-radius: 40px;
+            padding: 20px;
+            text-align: center;
+            border: 2px dashed #bac9f0;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #2c3f7a;
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            color: #1e3ac9;
+            margin-bottom: 12px;
+        }
+
+        /* CONTACT / CONSULT */
+        .consult-box {
+            background: linear-gradient(120deg, #0f1b4b 0%, #1a2a6e 100%);
+            color: #fff;
+            border-radius: 60px;
+            padding: 60px 50px;
+            margin: 30px 0 60px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .consult-box h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+
+        .consult-box p {
+            color: #cbd5ff;
+            font-size: 1.1rem;
+            max-width: 550px;
+        }
+
+        .consult-box .btn {
+            background: #ffffff;
+            color: #0f1b4b;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .consult-box .btn:hover {
+            background: #eef2ff;
+            color: #0f1b4b;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #ffffff;
+            padding: 40px 0;
+            border-top: 1px solid #e2e8f8;
+            color: #2e3a5c;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .footer-flex .logo h1 {
+            font-size: 1.3rem;
+        }
+
+        .footer-flex .logo i {
+            font-size: 1.8rem;
+            padding: 8px;
+        }
+
+        .footer-address i {
+            margin-right: 8px;
+            color: #1e3ac9;
+        }
+
+        .footer-address {
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: #6b7a9f;
+            margin-top: 20px;
+            text-align: center;
+            border-top: 1px solid #eef2fc;
+            padding-top: 28px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-cta {
+                justify-content: center;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 0 14px;
+                font-size: 0.9rem;
+            }
+            .hero-content h2 {
+                font-size: 2.4rem;
+            }
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .consult-box {
+                padding: 40px 30px;
+                text-align: center;
+                justify-content: center;
+            }
+            .consult-box h3 {
+                font-size: 1.8rem;
+            }
+            .location-section {
+                padding: 40px 24px;
+            }
+            .footer-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                margin: 0 8px;
+                font-size: 0.8rem;
+            }
+            .logo h1 {
+                font-size: 1.3rem;
+            }
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* small utility */
+        .text-center {
+            text-align: center;
+        }
+        .mt-4 {
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <i class="fas fa-moon"></i>
+                <div>
+                    <h1>Moonlight Language Center</h1>
+                    <span>Japanese Language Consultancy</span>
+                </div>
+            </div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#courses">Courses</a>
+                <a href="#location">Location</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="location-badge">
+                    <i class="fas fa-map-pin"></i> Ghorahi-15, Tulsipur Chowk, Dang
+                </div>
+                <h2>
+                    <i class="fas fa-language"></i> 
+                    <span class="highlight">Learn Japanese</span> with Moonlight
+                </h2>
+                <p>
+                    Your trusted Japanese language consultancy in Tulsipur Chowk, Ghorahi. 
+                    Whether you're aiming for JLPT, planning to study in Japan, or need 
+                    professional language support — we guide you every step of the way.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn">Book a consultation <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+                    <a href="#courses" class="btn btn-outline">Explore courses</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- inline SVG placeholder for visual interest -->
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES / FEATURES -->
+    <section class="section" id="courses">
+        <div class="container">
+            <h2 class="section-title">Why choose Moonlight?</h2>
+            <p class="section-sub">We provide expert Japanese language consultancy and courses tailored for Nepali students and professionals.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>JFT&JLPT Preparation</h3>
+                    <p>Structured courses from N5 to N2 with experienced instructors. Mock tests, study materials, and doubt sessions included.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>Work in Japan</h3>
+                    <p>Complete consultancy for language school admission, documentation, and pre-departure guidance.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Conversation Classes</h3>
+                    <p>Speak Japanese naturally with our interactive sessions, group discussions and cultural immersion.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Career Support</h3>
+                    <p>Resume building, interview prep in Japanese, and job placement assistance for SSK and other sectors.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Interview Prepration</h3>
+                    <p>Learn from certified instructors with years of teaching and real-life experience in Japan.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Flexible Timings</h3>
+                    <p>Morning, evening and weekend batches designed for students and working professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION SECTION -->
+    <div class="container">
+        <div class="location-section" id="location">
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3><i class="fas fa-map-marker-alt" style="color: #1e3ac9; margin-right: 12px;"></i>Visit us at Tulsipur Chowk</h3>
+                    <p style="color: #3d4a70; font-size: 1.05rem;">Conveniently located at the heart of Ghorahi-15, Tulsipur Chowk, Dang. Drop by for a free counselling session.</p>
+                    <div class="address">
+                        <i class="fas fa-building"></i>
+                        <p>
+                            Moonlight Language Center<br>
+                            Ghorahi-15, Tulsipur Chowk<br>
+                            Dang, Lumbini Province, Nepal
+                            <span>Landmark: Near Tulsipur Chowk Bus Stop</span>
+                        </p>
+                    </div>
+                    <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 16px;">
+                        <div><i class="fas fa-phone-alt" style="color: #1e3ac9; margin-right: 8px;"></i> Contact: 082-564-036</div>
+                        <div><i class="fas fa-envelope" style="color: #1e3ac9; margin-right: 8px;"></i> Email: moonlightlanguagecenter02@gmail.com</div>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <i class="fas fa-map"></i>
+                    <h4 style="font-weight: 600; color: #0b1442;">Ghorahi-15, Tulsipur Chowk</h4>
+                    <p style="font-size: 0.95rem; margin-top: 8px;">Dang, Nepal</p>
+                    <p style="font-size: 0.85rem; color: #5b6b9c; margin-top: 12px;"><i class="fas fa-location-arrow"></i> Opposite Tulsipur Chowk market</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONSULT / CONTACT CTA -->
+    <div class="container">
+        <div class="consult-box" id="contact">
+            <div>
+                <h3>Ready to start your Japanese journey?</h3>
+                <p>Get a free consultation session with our experts at Moonlight Language Center. We'll help you choose the right path.</p>
+            </div>
+            <a href="#" class="btn" style="font-size: 1.05rem; padding: 16px 38px;">
+                <i class="fas fa-calendar-check" style="margin-right: 10px;"></i> Book free consultation
+            </a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-flex">
+                <div class="logo">
+                    <i class="fas fa-moon"></i>
+                    <div>
+                        <h1>Moonlight Language Center</h1>
+                        <span style="font-size: 0.75rem;">Japanese language consultancy</span>
+                    </div>
+                </div>
+                <div class="footer-address">
+                    <i class="fas fa-map-pin"></i> Ghorahi-15, Tulsipur Chowk, Dang, Nepal
+                </div>
+                <div>
+                    <i class="fab fa-facebook" style="color: #1e3ac9; margin-right: 14px; font-size: 1.3rem;"></i>
+                    <i class="fab fa-instagram" style="color: #1e3ac9; margin-right: 14px; font-size: 1.3rem;"></i>
+                    <i class="fab fa-whatsapp" style="color: #1e3ac9; font-size: 1.3rem;"></i>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Moonlight Language Center, Ghorahi-15, Tulsipur Chowk, Dang. All rights reserved. 
+                <br><span style="font-size: 0.85rem;">Designed for Japanese language learners in Nepal.</span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
